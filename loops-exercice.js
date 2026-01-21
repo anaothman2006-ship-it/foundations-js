@@ -68,7 +68,7 @@ for (const contact of contacts) {
     
 }
 */
-
+/*
 const contacts = ['Chris:2232322', 'Sarah:3453456', 'Bill:7654322', 'Mary:9998769', 'Dianne:9384975'];
 const input = 'sarah';
 const search = input.charAt(0).toUpperCase() + input.slice(1);
@@ -85,3 +85,8 @@ for (const contact of contacts) {
    if (found === false) {
     console.log("Name Not found!")
    }
+
+
+for (let i = 0; i <= 10; i += 2) {
+    console.log(i)
+}*/
