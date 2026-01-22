@@ -14,7 +14,20 @@ return choice;
 
 function checkWinner() {
        let computerChoice = getComputerChoice()
-       let playerSelection = prompt("choice rock,  paper, scissor: ")
+        let playerSelection;
+       do {
+            let input = prompt("choice rock,  paper, scissor: ")
+            playerSelection = input ? input.toLowerCase() : null;
+          } while (
+             (playerSelection != "rock" &&
+             playerSelection != "paper" && 
+             playerSelection != "scissor") &&
+             playerSelection 
+            )
+         if (playerSelection == null) {
+            return "cancelled"
+         }
+          
     if (playerSelection == computerChoice ) {
         console.log(`computre choice ${computerChoice}`)
         console.log("tie")
@@ -36,12 +49,16 @@ function checkWinner() {
 }
 function playRound() {
     for (let i = 0; i < 5; i++) {
-        checkWinner()
+        let result = checkWinner()
+        if (result == "cancelled") {
+            console.log("Game Over!")
+            break;
+        }
+        
     }
+     console.log("Game Over!")
 
-     console.log( `your score is ${humanScore} and computer score is ${computerScore}!`)
-    
-    if (humanScore > computerScore) {
+     if (humanScore > computerScore) {
         console.log("Congratulations  you win!!!")
     }
     else if (humanScore < computerScore) {
@@ -50,6 +67,7 @@ function playRound() {
     else {
         console.log("Tie!")
     }
+     console.log( `your score is ${humanScore} and computer score is ${computerScore}!`)
     
 }
 playRound()
