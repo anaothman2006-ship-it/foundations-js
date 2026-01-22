@@ -212,7 +212,7 @@ studentLoop: for (let i = 0; i < allStudents.length; i++) {
 
    console.log(allStudents[i] + " absent!")
 }
-*/
+
 // i = 0 ya3ni allstudents[i] ahmed
 // allstudents[i] = ahmed == attended[j] = sara. false
 // ++j =  1 
@@ -235,3 +235,30 @@ studentLoop: for (let i = 0; i < allStudents.length; i++) {
    }
 
 }
+
+let allStudents = ["Ahmed", "Sara", "Ali", "Mona"];
+let attended = ["Sara", "Mona"];
+
+studentLoop: for (let i = 0; i < allStudents.length; i++) {
+
+   for (let j = 0; j < attended.length; j++) {
+       if (allStudents[i] == attended[j]) {
+         continue studentLoop;
+       }
+   }
+   console.log(allStudents[i])
+}
+
+primeNumber: for (let i = 2; i < 10; i++) {
+
+   for (let j = 2; j < i; j++) {
+      if (i % j == 0) {
+         continue primeNumber;
+      }
+   }
+   console.log(i)
+}
+// 2 < 2 no console.log(i) = 2
+// 3 % 2 == 0 false i++ 3 < 3 no console.log(i) = 3
+// 4 % 2 == 0 true continue 
+// 5 % 2 == 0 false i++ 5 % 3 == 0 false 5 % 4 == 0 false 5 < 5 no console.log(i) == 5
