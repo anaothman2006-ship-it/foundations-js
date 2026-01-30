@@ -58,7 +58,7 @@ let arr = ["banana", "apple", "lemon",];
 console.log(arr.at(-1))
 
 let arr = ["banana", "apple", "lemon", "strawberry",];
-alert(arr.pop()); // remove "Pear" and alert it
+alert(arr.pop()); // remove "strawberry" and alert it
 console.log(arr)
 
 let arr = ["banana", "apple", "lemon", "strawberry",];
