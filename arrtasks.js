@@ -327,10 +327,271 @@ let colors = ["Red", "Green", "Blue", "Yellow"];
 let arr = colors.slice(1, 3);
 console.log(colors);
 console.log(arr);
+
+
+const names = ["Othman", "Ahmed", "Sara", "Ali"];
+const spliceNames = names.toSpliced(0, 2);
+const result = spliceNames.join(" & ")
+
+console.log(result)
+
+
+const names = ["Othman", "Ahmed", "Sara", "Ali"];
+const result = names
+        .slice(-2)
+        .join(" & ")
+
+console.log(result)
+
+
+const fruits = ["banana", "apple"];
+console.log(fruits.indexOf(1))
+
+
+const fruits = ["banana", "apple"];
+console.log(fruits.includes("cherry"));
+console.log(fruits.includes("banana"));
+
+console.log(fruits.indexOf("banana"));
+console.log(fruits.indexOf("banana") !== -1)
+
+
+const fruits = ["Apple", "Banana"];
+const newLength = fruits.push("banana");
+console.log(fruits)
+console.log(newLength); //  length
+
+
+const fruits = ["Apple", "Banana", "Orange"];
+const removedItem = fruits.pop();
+console.log(fruits);
+alert(removedItem);
+
+
+
+const fruits = ["Apple", "Banana", "Strawberry", "Mango", "Cherry"];
+const start = -2;
+const removedItems = fruits.splice(start);
+console.log(fruits);
+console.log(removedItems);
+
+
+const fruits = ["Apple", "Banana", "Strawberry", "Mango", "Cherry"];
+const removedFirstItem = fruits.shift();
+console.log(fruits);
+console.log(removedFirstItem);
+
+
+const arr = ["Othman", "is", "not", "the", "king"];
+const start = 2;
+const deleteCount = 1;
+const removedItems = arr.splice(start, deleteCount);
+console.log(arr);
+console.log(`removed Item: ${removedItems}`);
+
+
+const arr = ["is", "the", "king",];
+const newLength = arr.unshift("Othman");
+console.log(arr);
+console.log(newLength);
+
+
+
+const arr = ["Othman", "is", "not", "the", "king"];
+const start = 2;
+const deleteCount = 1;
+const addedItem = "Always"
+const removedItems = arr.splice(start, deleteCount, addedItem);
+console.log(arr);
+console.log(`removed Item: ${removedItems}`);
+
+const names = [
+  "Othman", "Ahmed", "Sami", "Zain", "Nasser", 
+  "Omar", "Mariam", "Laila", "Yassine", "Hamza",
+  "Sara", "Ali", "Hassan", "Nour", "Fatima",
+  "Yousef", "Ibrahim", "Khaled", "Amira", "Rayan"
+];
+const start = names.indexOf("Mariam");
+console.log(start);
+const deleteCount = 1;
+const addNewName = "Safaaaaaaaaaaaaaaa"
+const removedNames = names.splice(start, deleteCount, addNewName);
+
+console.log(names);
+
+
+
+// #############################
+const names = [
+  "Othman", "Ahmed", "Sami", "Zain", "Nasser", 
+  "Omar", "Mariam", "Laila", "Yassine", "Hamza",
+  "Sara", "Ali", "Hassan", "Nour", "Fatima",
+  "Yousef", "Ibrahim", "Khaled", "Amira", "Rayan"
+];
+
+console.log(names)
+
+function findName() {
+    const userInput = prompt("Enter the name in the array you want to change: ");
+    const changedUserInput = prompt("Enter the name you want to changed with: ")
+
+    const appropriateUserInput = userInput.slice(0, 1).toUpperCase() + userInput.slice(1).toLowerCase();
+    
+    const start = names.indexOf(appropriateUserInput);
+    const deleteCount = 1;
+    const addNewName = changedUserInput;
+
+    if (start !== -1) {
+        names.splice(start, deleteCount, changedUserInput);
+        return {
+            message: `${userInput} => ${addNewName}`,
+            updateList: names
+        };
+    }    
+     else {
+        return {
+           message: "Name not found!",
+           updateList: names
+        }
+    }
+
+}
+const result = findName();
+console.log(result.message);
+console.log(result.updateList)
+
+
+
+const employees = ["Ahmed", "Sara", "Othman", "Mariam", "Ali"];
+
+function getNewName() {
+    const userNameInput = prompt("Enter the employe name you looking for:");
+    if (!userNameInput) {
+        return {message: "Operation Cancelled", updateList: employees}
+    }
+    const validNameInput = userNameInput.slice(0, 1).toUpperCase() + userNameInput.slice(1).toLowerCase();
+    const start = employees.indexOf(validNameInput);
+
+    if (start !== -1) {
+        const newUserName = prompt("Enter the New name: ");
+        employees.splice(start, 1, newUserName);
+        return {
+            message: `${validNameInput} has been changed to ${newUserName} in index ${start}`,
+            updateList: employees
+        };
+    }
+    else {
+        employees.push(validNameInput);
+        const index = employees.length - 1
+        return {
+            message: `new employee has been added in index ${index}`,
+            updateList: employees,
+        }
+    }
+}
+const result = getNewName();
+console.log(result.message);
+console.table(result.updateList);
+
+
+
+
+const fruits = ["Apple", "Banana", "Strawberry"];
+const start = -2;
+const deleteCount = 2;
+const removedItems = fruits.splice(start, deleteCount, "Mango", "Cherry");
+console.log(fruits);
+console.log(removedItems);
+
+for (const fruit of fruits) {
+    console.log(fruit)
+}
+
+
+
+const fruits = ["Apple", "Banana", "Strawberry"];
+fruits.forEach(fruit => {
+    console.log(fruit)
+});
+
+const numbers = [5, 5, 5, 23, 24];
+const check = numbers.every(num => num > 1);
+console.log(numbers);
+console.log(check)
+
+
+const arr = ["Othman", "the"];
+const arr2 = ["king"];
+const combinedarr = arr.concat(arr2);
+const removedItems = combinedarr.splice(1, 0, "is", "always");
+console.log(combinedarr);
+
+const arr = [1, 2, 3, 4, 5];
+const newArr = arr.slice(0, 1);
+console.log(arr);
+console.log(newArr);
+
+
+const fruits = ["Strawberry", "Mango"];
+const fruitsCopy = fruits.slice();
+const removedItems = fruitsCopy.splice(0, 1, "banana");
+console.log(fruits);
+console.log(fruitsCopy);
+console.log(removedItems);
+
+
+const fruits = ["Strawberry", "Mango", [24, 6, 2005]];
+const fruitsCopy = fruits.slice();
+fruitsCopy[2][2] = 2006;
+console.log(fruits);
+console.log(fruitsCopy);
+
+const arr = ["Othman", "King", [24, 6, 2005]];
+const arrCopy = JSON.parse(JSON.stringify(arr));
+// or const arrCopy = structuredClone(arr)
+arrCopy[2][2] = 2006;
+console.log(arr);
+console.log(arrCopy);
+
+
+
+const board = [
+  ["R", "N", "B", "Q", "K", "B", "N", "R"],
+  ["P", "P", "P", "P", "P", "P", "P", "P"],
+  [" ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " "],
+  ["p", "p", "p", "p", "p", "p", "p", "p"],
+  ["r", "n", "b", "q", "k", "b", "n", "r"],
+];
+console.log(board.join("\n"));
+
+board[4][4] = board[6][4];
+board[6][4] = " "
+console.log(board.join("\n"));
 */
 
-const nums = [10, 20, 30, 40];
-const arr = nums.splice(1, 2);
-console.log(nums);
-console.log(arr)
+
+const board = [
+  ["R", "N", "B", "Q", "K", "B", "N", "R"],
+  ["P", "P", "P", "P", "P", "P", "P", "P"],
+  [" ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " "],
+  [" ", " ", " ", " ", " ", " ", " ", " "],
+  ["p", "p", "p", "p", "p", "p", "p", "p"],
+  ["r", "n", "b", "q", "k", "b", "n", "r"], 
+];
+console.log(board.join("\n"));
+const board1 = board[7][0];
+const board2 = board[5][0];
+
+if (board2 > 0) {
+    console.log("Error: Out of bounds!");
+}
+board2 = board1;
+
+console.log(board.join("\n"));
+
 
