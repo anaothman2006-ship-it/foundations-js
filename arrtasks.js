@@ -570,7 +570,7 @@ console.log(board.join("\n"));
 board[4][4] = board[6][4];
 board[6][4] = " "
 console.log(board.join("\n"));
-*/
+
 
 
 const board = [
@@ -584,14 +584,823 @@ const board = [
   ["r", "n", "b", "q", "k", "b", "n", "r"], 
 ];
 console.log(board.join("\n"));
-const board1 = board[7][0];
-const board2 = board[5][0];
+let targetRow = 4;
 
-if (board2 > 0) {
-    console.log("Error: Out of bounds!");
+if (targetRow < 0 || targetRow > board.length) {
+    console.log("Error: Out Of bounds!")
 }
-board2 = board1;
-
+else {
+    if (!board[targetRow][0].trim()) {
+        board[targetRow][0] = board[7][0];
+        board[7][0] = " ";
+    }
+    else {
+        console.log("The place is occupied!");
+    }
+}
 console.log(board.join("\n"));
 
 
+const values = [];
+for (let x = 0; x < 10; x++) {
+  values.push([2 ** x, 2 * x ** 2]);//1, 0 ||  2, 2 || 4, 8
+}
+console.table(values);
+
+
+// what if : const row = [];
+const board = []
+for (let x = 0; x < 8; x++) {
+const row = [];
+for (let i = 0; i < 8; i++) {
+    if (i % 2 === 0) {
+        row.push("B");
+    }
+    else {
+        row.push("W");
+    }
+}
+board.push(row)
+}
+console.log(board.join("\n"))
+
+
+const fridge = [];
+const bag = ["Apple"]; // الحقيبة بدأت بتفاحة واحدة
+
+for (let i = 0; i < 2; i++) {
+    bag.push("Orange"); // نضيف برتقالة في كل دورة
+    fridge.push(bag);
+}
+
+// السؤال: ماذا سيطبع الحاسوب في النهاية؟
+console.log(fridge);
+*/
+
+/*
+fridge[["Apple", "Orange", "Orange"] ["Apple", "Orange", Orange]]
+bag["Apple", "Orange", Orange]
+
+i = 0 < 2
+bag.push("Orange")
+fridge.push(bag)
+
+i = 1 < 2
+bag.push("Orange")
+fridge.push(bag)
+
+i = 2 < 2
+console.log(fridge) 
+fridge[["Apple", "Orange", "Orange"] ["Apple", "Orange", Orange]]
+
+
+
+const fridge = [];
+
+for (let i = 0; i < 2; i++) {
+    const bag = ["Apple"]; // الحقيبة تُخلق من جديد في كل دورة
+    bag.push("Orange");
+    fridge.push(bag);
+}
+
+console.log(fridge);
+/* 
+
+fridge [["Apple", "Orange"] ["Apple", "Orange"]] 
+
+i = 0 < 2
+bag["Apple", "Orange"]
+bag.push("Orange")
+fridge.push(bag)
+
+i = 1 < 2
+bag["Apple", "Orange"]
+bag.push("Orange")
+fridge.push(bag)
+
+i = 2 < 2
+console.log(fridge)
+fridge [["Apple", "Orange"] ["Apple", "Orange"]] 
+
+
+const myRe = /k(e)(n)(d)(a)(l+)/i;
+const exicResult = myRe.exec("ahmedkendallothman");
+
+console.log(exicResult);
+
+
+const myRe = /k.*e.*n.*d.*a.*l.*l/i;
+const exicResult = myRe.exec("dfksfdedfdfnsfdfdsfsfasfslsfl");
+console.log(exicResult);
+
+
+
+
+const numbers = [10, 20, 30, 40];
+
+numbers.forEach((item, i, arr) => {
+  if (i > 0) {
+    arr[i - 1] = arr[i - 1] + 5;
+  }
+  console.log(`At index ${i}, item is: ${item}`);
+});
+
+// 0 > 0 false
+// [10, 20, 30, 40]
+// 1 > 0 true
+// arr[1 - 1] = arr[1 - 1] = arr[0] + 5; 10 + 5 === 15
+// [15, 20, 30, 40]
+
+// 2 > 0 true
+// arr[2 - 1] = arr[2 - 1] arr[1] + 5; 20 + 5 === 25
+// [15, 25, 30, 40]
+
+// 3 > 0 true
+// arr[3 - 1] = arr[3 - 1] arr[2] + 5; 30 + 5 === 35
+// [15, 25, 35, 40]
+
+const numbers = [1, 1, 1];
+
+numbers.forEach((item, i, arr) => {
+  if (i + 1 < arr.length) {
+    arr[i + 1] = arr[i + 1] + item;
+  }
+  console.log(item); 
+});
+
+/*
+0
+0 + 1 < 3 = true
+arr[0 + 1] =+ item
+arr[1] = 1 + 1 = 2
+[1, 2, 1]
+
+1 
+1 + 1 < 3 = true
+arr[1 + 1] =+ item
+arr[2] + 2
+[1, 2, 3]
+
+2
+2 + 1 < 3 = false
+
+
+const numbers = [2, 2, 2];
+
+numbers.forEach((item, i, arr) => {
+  if (i + 1 < arr.length) {
+    arr[i + 1] = arr[i + 1] * item;
+  }
+  console.log(item);
+});
+
+
+/*
+0
+0 + 1 < 3 true
+arr[0 + 1] =+ arr[0 + 1] * item
+arr[1] * 2 === 4
+[2, 4, 2]
+
+1
+1 + 1 < 3 true
+arr[1 + 1] = +arr[1 + 1] * item
+arr[2] * item = 8
+[2, 4, 8]
+
+2
+2 + 1 < 3 false
+
+
+
+function testSideEffect(effect) {
+    const arr = ["A", "b"];
+
+    effect(arr, 0)
+    console.log(arr)
+};
+
+testSideEffect((arr, index) => {
+    if (index + 1 < arr.length) {
+        arr[index + 1] = "B"
+    }
+})
+
+// 1 < 3
+// arr[1] = "B"
+// ["A", "B"]
+
+// 2 < 2 false
+
+
+function testSideEffect() {
+  const arr = ["e1", "e2", "e3", "e4"];
+  arr.forEach((elem, index, arr) => {
+    console.log(`array: [${arr.join(", ")}], index: ${index}, elem: ${elem}`);
+    ((arr, index) => {
+    if (index + 1 < arr.length) arr[index + 1] += "*";
+    })(arr, index);
+  });
+  console.log(`Final array: [${arr.join(", ")}]`);
+}
+testSideEffect()
+
+
+
+
+function challenge() {
+  const arr = ["Apple", "Banana", "Cherry"];
+
+  arr.forEach((item, index, currentArr) => {
+    console.log(`Current: ${item}`);
+
+    ((a, i) => {
+      if (i === 0) {
+        a[i + 1] = "Date"; 
+      }
+    })(currentArr, index);
+  });
+}
+
+challenge();
+
+/*
+0
+current = "apple";
+a[0 + 1] = "data"
+a[1] = "data"
+["Apple", "Data", "Cherry"]
+
+1
+current "data"
+1 === 0 false
+
+2
+current = "Cherry"
+2 === 0 false
+
+
+    
+
+
+
+function mathMachine(num, action) {
+  const result = num * 2;
+  action(result); 
+}
+
+mathMachine(5, (output) => {
+  console.log(output + 1);
+});
+
+/*
+num = 5
+action = (output) => {
+  console.log(output + 1);
+})
+
+
+output = result
+
+
+console.log(output + 1)
+11
+
+
+
+function multiplyNumber(effect) {
+    const arr = [4, 5, 77, 86, 8, 878, 989, 5554];
+
+    console.log(effect(arr));
+    
+    console.log("Done")
+}
+
+multiplyNumber(test => test.filter(num => num % 2 === 0));
+
+
+function testSideEffect(effect) {
+  const arr = ["e1", "e2", "e3", "e4"];
+  arr.forEach((elem, index, arr) => {
+    console.log(`array: [${arr.join(", ")}], index: ${index}, elem: ${elem}`);
+    effect(arr, index);
+  });
+  console.log(`Final array: [${arr.join(", ")}]`);
+}
+
+testSideEffect((arr, index) => {
+  if (index + 1 < arr.length) arr[index + 1] += "*";
+});
+*/
+/*
+0
+array: ["e1", "e2", "e3", "e4"], index: 0, elem: e1;
+arr = arr
+index = index
+if index + 1 < arr.length, 0 + 1 = 1 < 4 {
+arr[index + 1] = arr[0 + 1]
+arr[1] += *
+    //["e1", "e2*", "e3", "e4"]
+
+1
+array: ["e1", "e2*", "e3", "e4"], index: 1, elem: e2*;
+if index + 1 < arr.length, 1 + 1 = 1 < 4 {
+arr[1 + 1] = arr[2] += *
+    //["e1", "e2*", "e3*", "e4"]
+
+2
+array: ["e1", "e2*", "e3*", "e4"], index: 2, elem: e3*;
+if index + 1 < arr.length = 2 + 1 < 4 {
+arr[2 + 1] = arr[3] += *
+    //["e1", "e2*", "e3*", "e*"]
+
+3
+array: ["e1", "e2*", "e3*", "e4*"], index: 3, elem: e4*;
+if index + 1 < arr.length = 4 < 4 false
+
+}
+
+
+}
+}
+
+
+
+const numbers = [1, 2, 3];
+
+numbers.forEach((num, index) => {
+  console.log(`Index: ${index}, Num: ${num}`);
+  if (index === 0) {
+    numbers.unshift(0); 
+  }
+});
+/*
+[1, 2, 3]
+index: 0, num: 1
+if index === 0 true
+unshift 0
+[0, 1, 2, 3]
+
+index: 1, num: 1
+
+index: 2, num: 2
+
+index: 3, num: 3
+
+
+
+
+function testSideEffect(effect) {
+  const arr = ["e1", "e2", "e3", "e4"];
+  arr.forEach((elem, index, arr) => {
+    console.log(`array: [${arr.join(", ")}], index: ${index}, elem: ${elem}`);
+    effect(arr, index);
+  });
+  console.log(`Final array: [${arr.join(", ")}]`);
+}
+
+testSideEffect((arr, index) => {
+    if (index > 0) arr[index - 1] += "*";
+});
+*/
+/*
+array: ["e1", "e2", "e3", "e4"], index: 0, elem: e1
+index > 0 false
+
+array: ["e1", "e2", "e3", "e4"], index: 1, elem: e2
+index > 0 true  arr[1 - 1] += "*" 
+///["e1*", "e2", "e3", "e4"]
+
+array: ["e1*", "e2", "e3", "e4"], index: 2, elem: e3
+index > 0 true  arr[2 - 1] += "*" 
+///["e1*", "e2*", "e3", "e4"]
+
+array: ["e1*", "e2*", "e3", "e4"], index: 3, elem: e4
+index > 0 true  arr[3 - 1] += "*" 
+///["e1*", "e2*", "e3*", "e4"]
+
+final array: ["e1*", "e2*", "e3*", "e4"]
+
+
+
+
+function testSideEffect(effect) {
+  const arr = ["e1", "e2", "e3", "e4"];
+  arr.forEach((elem, index, arr) => {
+    console.log(`array: [${arr.join(", ")}], index: ${index}, elem: ${elem}`);
+    effect(arr, index);
+  });
+  console.log(`Final array: [${arr.join(", ")}]`);
+};
+
+
+testSideEffect((arr, index) => {
+  if (index === 1) arr.splice(2, 0, "new");
+});
+*/
+
+/* 
+array: ["e1", "e2", "e3", "e4"], index: 0, elem: e1
+index === 1 false
+
+array: ["e1", "e2", "e3", "e4"], index: 1, elem: e2
+index === 1 true arr.splice(2, 0, "new")
+["e1", "e2", "new", "e3", "e4"]
+
+array: ["e1", "e2", "new", "e3", "e4"], index: 2, elem: new
+index === 1 false
+
+array: ["e1", "e2", "new", "e3", "e4"], index: 3, elem: e3
+index === 1 false
+
+
+final array: ["e1", "e2", "new", "e3", "e4"]
+
+function testSideEffect(effect) {
+  const arr = ["e1", "e2", "e3", "e4"];
+  arr.forEach((elem, index, arr) => {
+    console.log(`array: [${arr.join(", ")}], index: ${index}, elem: ${elem}`);
+    effect(arr, index);
+  });
+  console.log(`Final array: [${arr.join(", ")}]`);
+};
+
+testSideEffect((arr) => arr.push("new"));
+*/
+
+/*
+array: ["e1", "e2", "e3", "e4"], index: 0, elem: e1
+arr.push("new")
+///["e1", "e2", "e3", "e4", "new"];
+
+array: ["e1", "e2", "e3", "e4", "new"], index: 1, elem: e2
+arr.push("new")
+///["e1", "e2", "e3", "e4", "new", "new"];
+
+array: ["e1", "e2", "e3", "e4", "new", "new"], index: 2, elem: e3
+arr.push("new")
+///["e1", "e2", "e3", "e4", "new", "new", "new"];
+
+array: ["e1", "e2", "e3", "e4", "new", "new", "new"], index: 3, elem: e4
+arr.push("new")
+///["e1", "e2", "e3", "e4", "new", "new", "new", "new"];
+
+final array: ["e1", "e2", "e3", "e4", "new", "new", "new", "new"];
+
+
+function testSideEffect(effect) {
+  const arr = ["e1", "e2", "e3", "e4"];
+  arr.forEach((elem, index, arr) => {
+    console.log(`array: [${arr.join(", ")}], index: ${index}, elem: ${elem}`);
+    effect(arr, index);
+  });
+  console.log(`Final array: [${arr.join(", ")}]`);
+};
+
+testSideEffect((arr, index) => arr.splice(index, 0, "new"));
+*/
+/*
+array: ["e1", "e2", "e3", "e4"], index: 0, elem: e1
+arr.splice(index, 0, "new")
+   ///["new", "e1", "e2", "e3", "e4"]
+
+array: ["new", "e1", "e2", "e3", "e4"], index: 1, elem: e1
+arr.splice(index, 0, "new")
+   ///["new", "new", "e1", "e2", "e3", "e4"]
+
+array: ["new", "new", "e1", "e2", "e3", "e4"], index: 2, elem: e1
+arr.splice(index, 0, "new")
+   ///["new", "new", "new", "e1", "e2", "e3", "e4"]
+
+array: ["new", "new", "new", "e1", "e2", "e3", "e4"], index: 3, elem: e1
+arr.splice(index, 0, "new")
+   ///["new", "new", "new", "new", "e1", "e2", "e3", "e4"]
+
+final array: ["new", "new", "new", "new", "e1", "e2", "e3", "e4"]
+
+
+function testSideEffect(effect) {
+  const arr = ["e1", "e2", "e3", "e4"];
+  arr.forEach((elem, index, arr) => {
+    console.log(`array: [${arr.join(", ")}], index: ${index}, elem: ${elem}`);
+    effect(arr, index);
+  });
+  console.log(`Final array: [${arr.join(", ")}]`);
+};
+
+testSideEffect((arr, index) => {
+  if (index === 1) arr.splice(2, 1);
+});
+*/
+
+/*
+array: ["e1", "e2", "e3", "e4"], index: 0, elem: e1
+index === 1 = false
+
+array: ["e1", "e2", "e3", "e4"], index: 1, elem: e2
+index === 1 = true arr.splice(2, 1)
+  //// ["e1", "e2", "e4"]
+
+array: ["e1", "e2", "e4"], index: 2, elem: e4
+index === 1 false
+
+final array: ["e1", "e2", "e4"]
+
+
+const arr2 = ["e1", "e2", "e3", "e4"];
+arr2.find((elem, index, arr) => {
+    console.log(`array: ${arr.join(", ")}, index: ${index}, elem: ${elem}`);
+    if (index === 1) arr.splice(2, 1);
+});
+*/
+/*
+array: ["e1", "e2", "e3", "e4"], index: 0, elem: e1
+index === 1 false
+
+array: ["e1", "e2", "e3", "e4"], index: 1, elem: e2
+index === 1 true arr.splice(2, 1)
+   //// ["e1", "e2", "e4"]
+
+array: ["e1", "e2", "e4"], index: 2, elem: e4
+index === 1 false
+
+array: ["e1", "e2", "e4"], index: 3, elem: undefined
+index === 1 false
+
+
+
+function testSideEffect(effect) {
+  const arr = ["e1", "e2", "e3", "e4"];
+  arr.forEach((elem, index, arr) => {
+    console.log(`array: [${arr.join(", ")}], index: ${index}, elem: ${elem}`);
+    effect(arr, index);
+  });
+  console.log(`Final array: [${arr.join(", ")}]`);
+};
+
+testSideEffect((arr, index) => arr.splice(index, 1));
+*/
+/*
+array: ["e1", "e2", "e3", "e4"], index: 0, elem: e1
+arr.splice(index, 1);
+///["e2", "e3", "e4"]
+
+array: ["e2", "e3", "e4"], index: 1, elem: e3
+arr.splice(index, 1)
+///["e2", "e4"]
+
+final array: ["e2", "e4"]
+
+
+const arr2 = ["e1", "e2", "e3", "e4"];
+arr2.find((elem, index, arr) => {
+  console.log(`array: [${arr.join(", ")}], index: ${index}, elem: ${elem}`);
+  arr.splice(index, 1);
+  return false;
+});
+*/
+
+/*
+array: ["e1", "e2", "e3", "e4"], index: 0, elem: e1
+arr.splice(index, 1);
+///["e2", "e3", "e4"]
+
+array: ["e2", "e3", "e4"], index: 1, elem: e3
+arr.splice(index, 1)
+///["e2", "e4"]
+
+array: ["e2", "e4"], index: 2, elem: undefined
+
+array: ["e2", "e4"], index: 3, elem: undefined
+
+
+
+
+const data = ["Apple", "Boy", "Art", "Cat"];
+
+data.forEach((elem, index, arr) => {
+
+    if (elem.startsWith("A")) {
+        arr[index] = "Deleted"
+    }
+    else {
+        arr[index] = elem.toUpperCase()
+    }
+});
+
+const filteredData = data.filter((elem => elem !== "Deleted"));
+console.log(data);
+console.log(filteredData)
+
+function sumOfTripledEvens(array) {
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0) {
+      const tripleEvenNumber = array[i] * 3;
+
+      sum += tripleEvenNumber;
+    }
+  }
+  return sum;
+}
+
+console.log(sumOfTripledEvens([3, 4, 645, 34, 232, 45]))
+
+function sumOfTripledEvens(array) {
+  return array
+       .filter(item => item % 2 === 0)
+       .map(item => item * 3)
+       .reduce((total, item) => total + item, 0)
+  
+}
+console.log(sumOfTripledEvens([3, 4, 645, 34, 232, 45]))
+
+function addOne(num) {
+  return num + 1;
+}
+const arr = [1, 2, 3, 4, 5];
+const mappedArr = arr.map(addOne);
+console.log(mappedArr); 
+
+function isOdd(item) {
+  return item % 2 !== 0;
+};
+const arr = [1, 2, 3, 5, 6];
+const oddNum = arr.filter(isOdd);
+console.log(arr);
+console.log(oddNum);
+
+const arr = [1, 2, 3, 4, 5, 6];
+const reduceArr = arr.reduce((total, item) => {
+  return total * item
+}, 1);
+console.log(reduceArr);
+
+
+// tasks
+
+
+function camelize(str) {
+  let arr = str.split("-")
+  for (let i = 1; i < arr.length; i++) {
+    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+  };
+  const result = arr.join("");
+  return result;
+}
+
+console.log(camelize("background-color"));
+console.log(camelize("list-style-image"));
+console.log(camelize("-webkit-transition"));
+
+
+function camelize(str) {
+  let arr = str.split("-")
+  const updateData = arr.map((elem, index) => index > 0 ? elem[0].toUpperCase() + elem.slice(1) : elem);
+  const result = updateData.join("");
+  return result;
+}
+const arr = "list-style-image";
+
+console.log(camelize(arr));
+console.log(camelize("list-style-image"));
+console.log(camelize("-webkit-transition"));
+
+function camelize(str) {
+  return str
+      .split("-")
+      .map((elem, index) => {
+        if (!elem) return elem;
+        return index === 0 ? elem : elem[0].toUpperCase() + elem.slice(1)
+      })
+      .join("")
+};
+
+console.log(camelize("background-color"));
+console.log(camelize("list-style-image"));
+console.log(camelize("--webkit-transition"));
+
+
+
+// task 2
+
+function filterRange(arr, a, b) {
+  return arr.filter(item => item >= a && item <=b);
+};
+
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(arr);
+const filtered = filterRange(arr, 2, 6);
+console.log(filtered);
+
+
+// task3
+
+function filterRangeInPlace(arr, a, b) {
+  for (let i = arr.length - 1; i >= 0; i--) {
+    const val = arr[i];
+    if (val < a || val > b) {
+      arr.splice(i, 1)
+    }
+  }
+}
+const array = [1, 2, 3, 4, 5, 6, 7, 2, 9];
+
+filterRangeInPlace(array, 3, 9);
+
+console.log(array);
+
+
+// task 4
+
+const arr = [5, 2, 1, -10, 8];
+arr.sort((a, b) => b - a);
+console.log(arr);
+
+
+
+// task 5
+
+function copySorted(arr) {
+  return [...arr].sort((a, b) => a.length - b.length);
+}
+
+const array = ["html", "javascript", "css"];
+const sortedArr = copySorted(array);
+console.log(array);
+console.log(sortedArr);
+
+function copySorted(arr) {
+  return arr.slice().sort();
+};
+const arr = ["HTML", "JAVASCRIPT", "CSS"];
+console.log(arr);
+const sortedArr = copySorted(arr);
+console.log(sortedArr);
+
+
+
+// task 6
+
+
+const arr = [1, 2, 3];
+const updateData = [];
+const index = Math.floor(Math.random() * arr.length);
+console.log(index);
+updateData.push(arr[index])
+console.log(updateData);
+
+
+function shuffle(array) {
+const updateData = [];
+for (let i = array.length - 1; i >= 0; i--) {
+  const randomIndex = Math.floor(Math.random() * array.length);
+  updateData.push(arr[randomIndex]);
+  array.splice(randomIndex, 1);
+};
+console.log(updateData);
+};
+
+const arr = [1, 2, 3];
+shuffle(arr);
+shuffle(arr);
+shuffle(arr);
+
+
+*/
+/*
+updateData [2,3,1]
+2 >= 0
+1
+updateData.push(arr[randomIndex]);
+array.splice(1, 1)
+arr [1,3]
+
+1 >= 0
+1
+updateData.push(arr[randomIndex]);
+array.splice(1, 1)
+arr [1]
+
+0 >= 0
+0
+updateData.push(arr[randomIndex]);
+array.splice(0, 1)
+arr []
+
+*/
+
+function shuffle(array) {
+  for (let i = array.length - 1; i >= 0; i--) {
+    const randomIndex = Math.floor(Math.random() * array.length);
+    let temp = array[i];
+    array[i] = array[randomIndex];
+    array[randomIndex] = temp
+  }
+  console.log(array);
+};
+
+const arr = [1, 2, 3];
+
+shuffle(arr);
+shuffle(arr);
