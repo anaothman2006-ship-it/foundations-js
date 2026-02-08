@@ -1388,11 +1388,10 @@ updateData.push(arr[randomIndex]);
 array.splice(0, 1)
 arr []
 
-*/
 
 function shuffle(array) {
   for (let i = array.length - 1; i >= 0; i--) {
-    const randomIndex = Math.floor(Math.random() * array.length);
+    const randomIndex = Math.floor(Math.random() * (i + 1));
     let temp = array[i];
     array[i] = array[randomIndex];
     array[randomIndex] = temp
@@ -1400,7 +1399,64 @@ function shuffle(array) {
   console.log(array);
 };
 
-const arr = [1, 2, 3];
+const arr = [1, 3, 2];
 
 shuffle(arr);
 shuffle(arr);
+
+
+
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+}
+
+let arr = [1, 2, 3];
+shuffle(arr);
+console.log(arr);
+
+
+// task 7
+
+function unique(arr) {
+  return arr.filter((item, index, arr) => {
+    return index === arr.indexOf(item)
+});
+}
+
+let strings = ["Hare", "Krishna", "Hare", "Krishna",
+  "Krishna", "Krishna", "Hare", "Hare", ":-O"
+];
+
+console.log(unique(strings));
+
+/*
+arr[Hare, Krishna,]
+indexOf(Hare) === 0
+if index 0 === 0 true
+
+indexOf(Krishna) === 1
+if index 1 === 1 true
+
+indexOf(Hare) === 0
+if index 2 === 0 false
+
+
+
+
+const removeFromArray = function(array, ...args) {
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    if (!args.includes(array[i])) {
+      result.push(array[i])
+    }
+  }
+  return result
+}
+console.log(removeFromArray([1, 2, 3, 4], 3, 2));
+*/
+
+const removeFromArray = function(array, ...args) {
+  return array.filter((item) => !args.includes(item));
+}
+
+console.log(removeFromArray([1, 2, 3, 4], 3, 2));
