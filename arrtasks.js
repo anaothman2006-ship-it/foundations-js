@@ -1453,10 +1453,85 @@ const removeFromArray = function(array, ...args) {
   return result
 }
 console.log(removeFromArray([1, 2, 3, 4], 3, 2));
-*/
 
 const removeFromArray = function(array, ...args) {
   return array.filter((item) => !args.includes(item));
 }
 
 console.log(removeFromArray([1, 2, 3, 4], 3, 2));
+
+
+
+const sumAll = function(a, b) {
+  const hasError = a < 0 || b < 0 || !Number.isInteger(a) || !Number.isInteger(b)
+  if (hasError){
+    return "ERROR!"
+  }
+  if (a > b) {
+    const n = a - b + 1
+    const sum = n * (a + b) / 2
+    return sum
+  }
+  else {
+    const n = b - a + 1
+    const sum = n * (a + b) / 2
+    return sum
+  }
+};
+
+console.log(sumAll(4, 2.2));
+
+
+
+const sumAll = function(a, b) {
+  const hasError = a < 0 || b < 0 || !Number.isInteger(a) || !Number.isInteger(b)
+  if (hasError){
+    return "ERROR"
+  }
+  const n = Math.abs(a - b) + 1
+  const sum = n * (a + b) / 2
+  return sum
+};
+
+console.log(sumAll(123, 1));
+
+const sumAll = function(a, b) {
+  const hasError = a < 0 || b < 0 || !Number.isInteger(a) || !Number.isInteger(b);
+  if (hasError) {
+    return "ERROR"
+  }
+  if (a > b) {
+    let temp = a
+    a = b
+    b = temp
+  }
+  let sum = 0;
+  for (let i = a; i <= b; i++) {
+    sum += i
+  }
+  return sum
+}
+console.log(sumAll(4, 2));
+
+
+const leapYear = function(year) {
+  const isYearDivisibleByFour = year % 4 === 0;
+  const isCentury = year % 100 === 0;
+  const isYearDivisibleByFourHundred = year % 400 === 0
+
+  if (
+    isYearDivisibleByFour &&
+    (!isCentury || isYearDivisibleByFourHundred)
+  ) {
+    return true
+  }
+  else {
+    return false
+  }
+}
+
+console.log(leapYear(700));
+
+*/
+
+
