@@ -1535,3 +1535,39 @@ console.log(leapYear(700));
 */
 
 
+/*
+نضرب الدرجة (17) في 1.8 
+$\approx$ 30.6.نضيف عليها 32 (نقطة الصفر لديهم) 
+$\approx$ 62.6.بالتقريب تصبح 63.
+
+
+const convertToCelsius = function(fahrenheit) {
+  const OFFSET = 32;
+  const constantSum = fahrenheit - OFFSET;
+  const offsetSum = constantSum * 5/9;
+  const roundedTemp = +offsetSum.toFixed(1);
+  return roundedTemp
+};
+
+const convertToFahrenheit = function(celsius) {
+  const FACTOR = 1.8;
+  const OFFSET = 32;
+  const scalingSum = celsius * FACTOR;
+  const offsetSum = scalingSum + OFFSET;
+  const roundedTemp = +offsetSum.toFixed(1)
+  return roundedTemp;
+};
+
+console.log("to Fahrenheit", convertToFahrenheit(-38));
+console.log("to Celsius", convertToCelsius(100.4));
+*/
+
+const convertToCelsius = function(fahrenheit) {
+  return Math.round((fahrenheit - 32) * (5/9) * 10) / 10;
+};
+const convertToFahrenheit = function(celsius) {
+  return Math.round(((celsius * 9) / 5 + 32) * 10) / 10;
+}
+console.log(convertToFahrenheit(17));
+
+console.log(convertToCelsius(100));
