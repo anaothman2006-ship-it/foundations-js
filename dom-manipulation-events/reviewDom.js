@@ -1,0 +1,91 @@
+/*
+const newDiv = document.createElement("div");
+newDiv.textContent = "Hello, World!";
+newDiv.style.color = "red";
+const container = document.querySelector("#container");
+container.appendChild(newDiv);
+const removeChild = container.removeChild(newDiv);
+const controls = document.querySelector(".controls");
+container.insertBefore(newDiv, controls);
+*/
+
+
+/*
+const newDiv = document.createElement("div");
+newDiv.style.color = "blue";
+newDiv.style.cssText = "color: blue; background: red;";
+newDiv.setAttribute("style", "color: blue; background: white;");
+*/
+
+/*
+const btn = document.createElement("button");
+btn.textContent = "Click Me!";
+btn.style.cssText = "color: white; background: black; border-radius: 5px; cursor: pointer;";
+const container = document.querySelector("#container");
+const controls = document.querySelector(".controls");
+container.insertBefore(btn, controls);
+btn.addEventListener("click", function(e) {
+    console.log("Booooom!");
+    e.target.style.background = "red"
+});
+*/
+
+/*
+const div = document.createElement("div");
+div.textContent = "Hello World!";
+const container = document.querySelector("#container");
+container.appendChild(div);
+div.setAttribute("id", "theDiv");
+const idValue = div.getAttribute("id");
+console.log(idValue);
+*/
+
+
+/*
+const btn = document.createElement("button");
+btn.textContent = "Click me!";
+const container = document.querySelector("#container");
+const controls = document.querySelector(".controls");
+container.insertBefore(btn, controls);
+
+btn.addEventListener("click", function(e) {
+    btn.classList.toggle("active");
+})
+*/
+
+
+/*
+const div = document.createElement("div");
+div.innerHTML = "<h1>Othman is the king</h1>";
+const container = document.querySelector("#container");
+const controls = document.querySelector(".controls");
+container.insertBefore(div, controls);
+*/
+
+/*
+const container = document.querySelector("#container");
+
+const content = document.createElement("div");
+content.classList.add("content");
+content.textContent = "This is the glorious text-content!";
+
+container.appendChild(content);
+*/ 
+
+// Events
+
+/*
+const btn = document.querySelector("#btn");
+btn.onclick = () => alert("Hello World");
+*/
+
+
+/*
+// class
+const buttons = document.querySelectorAll(".btn");
+buttons.forEach((button) => {
+    button.onclick = () => alert("BOOOOOOM!");
+});
+*/
+
+
