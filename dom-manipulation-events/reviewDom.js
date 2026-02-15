@@ -88,4 +88,64 @@ buttons.forEach((button) => {
 });
 */
 
+/*
+const msg = document.querySelector("#msg");
 
+msg.addEventListener("keydown", (event) => {
+    if (event.key === " ") {
+        event.preventDefault();
+    }
+});
+
+msg.addEventListener("keyup", (event) => {
+    event.target.value = event.target.value.toUpperCase()
+});
+
+msg.addEventListener("keypress", (event) => {
+    console.log(`Character: ${event.key}`)
+    msg.style.background = "yellow";
+})
+*/
+
+
+
+/*
+const input = document.getElementById("user-input");
+
+input.addEventListener("keydown", (event) => {
+    if (!isNaN(event.key) && event.key !== " ") {
+        event.preventDefault()
+    }
+    if (event.code == "Space") {
+        input.style.backgroundColor = "red"
+    }
+});
+
+input.addEventListener("keyup", (e) => {
+    if (e.code === "Enter") alert("Mission started!")
+});
+
+*/
+
+
+/*
+const menu = document.querySelector("#menu");
+
+menu.addEventListener("click", (event) => {
+    const target = event.target;
+
+    switch(target.id) {
+        case 'home':
+            console.log("home item menu was clicked")
+            break;
+
+        case 'dashboard':
+            console.log("dashboard item menu was clicked");
+            break;
+
+        case 'report':
+            console.log("report item menu was clicked");
+            break;
+    }
+});
+*/

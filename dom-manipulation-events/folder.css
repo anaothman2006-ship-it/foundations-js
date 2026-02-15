@@ -1,0 +1,43 @@
+#container {
+    text-align: center;
+}
+
+.btn-start {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: lightcoral;
+    color: white;
+    font-weight: bold;
+    border: 1px solid lightpink;
+}
+.btn-clicker {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: lightblue;
+    color: white;
+    font-weight: bold;
+    border: 1px solid lightskyblue;
+}
+.btn-clicker:active {
+    background: rgb(120, 196, 221);
+}
+.btn-start:active {
+    background: rgb(233, 104, 104);
+}
+
+h3 {
+    font-style: italic;
+}
+
+.score-result {
+    font-weight: bold;
+    color: red;
+}
+.record-result {
+    color: blue;
+    font-size: 2rem;
+}
