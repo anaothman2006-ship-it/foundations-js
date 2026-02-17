@@ -1,26 +1,12 @@
+const container = document.getElementById("container");
 
-function addToCart(elem) {
-    let event = new CustomEvent('add', {
-        detail: {
-            productName: "Basics Ceramic Space Heater",
-            price: "499$"
-        }
-    });
-    elem.dispatchEvent(event);
-}
+container.addEventListener('click', () => {
+    console.log('BOOOOOOOM!');
+}, true);
 
-function changBgColor(elem) {
-    elem.style.backgroundColor = "red"
-}
-const button = document.querySelector('.add');
-
-button.addEventListener('add', (e) => {
-    changBgColor(e.target)
-    console.log(`${e.detail.productName}; Price: ${e.detail.price}`)
+const button = document.querySelector("button");
+button.addEventListener('click', (e) => {
+    e.stopPropagation();
+    e.target.style.backgroundColor = "red"
 });
-
-button.addEventListener('click', () => {
-    addToCart(button);
-});
-
 

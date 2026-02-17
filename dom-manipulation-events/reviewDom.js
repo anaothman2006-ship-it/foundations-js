@@ -226,3 +226,97 @@ div.addEventListener('mark', function (e) {
 highlight(div);
 */
 
+
+
+/*
+
+function addToCart(elem) {
+    let event = new CustomEvent('add', {
+        detail: {
+            productName: "Basics Ceramic Space Heater",
+            price: "499$"
+        }
+    });
+    elem.dispatchEvent(event);
+}
+
+function changBgColor(elem) {
+    elem.style.backgroundColor = "red"
+}
+const button = document.querySelector('.add');
+
+button.addEventListener('add', (e) => {
+    changBgColor(e.target)
+    console.log(`${e.detail.productName}; Price: ${e.detail.price}`)
+});
+
+button.addEventListener('click', () => {
+    addToCart(button);
+});
+*/
+
+
+
+
+/*
+///// shoping list
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        span {
+    margin-right: 10px;
+    }
+    li {
+    margin-bottom: 10px;
+    }
+    </style>
+    <script src="script.js" defer>
+        const ul = document.querySelector("ul");
+
+const enterButton = document.querySelector("button");
+
+const input = document.querySelector("#item");
+
+enterButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const li = document.createElement("li");
+    const item = document.createElement("span");
+    item.textContent = input.value;
+    li.appendChild(item);
+    input.value = "";
+    input.focus()
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Delete";
+    li.appendChild(removeBtn)
+    ul.appendChild(li);
+
+    removeBtn.addEventListener('click', () => {
+    li.remove();
+});
+});
+
+
+    </script>
+    <title>Document</title>
+</head>
+<body>
+     <h1>My shopping list</h1>
+
+    <form>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </form>
+
+    <ul>
+
+    </ul>
+</body>
+</html>
+
+
+*/
